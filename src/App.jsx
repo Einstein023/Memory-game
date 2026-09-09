@@ -13,6 +13,7 @@ function App() {
   const [matched, setMatched] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [shuffleVersion, setShuffleVersion] = useState(0);
+  const [clickCount, setClickCount] = useState(0);
 
   const handleCardClick = (cardId) => {
     if (flipped.length === 2 || flipped.includes(cardId) || matched.includes(cardId)) return;
@@ -21,6 +22,7 @@ function App() {
     setFlipped(newFlipped);
 
     if (newFlipped.length === 2) {
+      setClickCount(prevCount => prevCount + 1);
       const [firstCardId, secondCardId] = newFlipped;
       const firstCard = cards.find(card => card.id === firstCardId);
       const secondCard = cards.find(card => card.id === secondCardId);
@@ -41,12 +43,17 @@ function App() {
     setShuffleVersion(version => version + 1);
   };
 
+
   return (
     <main className="memory-game">
       <header className="game-header">
         <div className="game-heading">
           <h1>Memory Game</h1>
         </div>
+        <p className="move-counter" aria-live="polite">
+          <span className="move-counter-label">Moves</span>
+          <strong>{clickCount}</strong>
+        </p>
         <button className="reset-button" type="button" onClick={handleReset}>
           <span aria-hidden="true">↻</span>
           <span>Reset Game</span>

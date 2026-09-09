@@ -36,6 +36,36 @@
   line-height: 0.95;
 }
 
+.move-counter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin: 0 0 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 12px;
+  padding: 0.55rem 0.8rem;
+  color: rgba(247, 241, 232, 0.72);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.move-counter-label {
+  color: rgba(247, 241, 232, 0.62);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.move-counter strong {
+  min-width: 1.5ch;
+  color: #f6b748;
+  font-size: 1.15rem;
+  text-align: right;
+}
+
 .reset-button {
   display: inline-flex;
   flex-shrink: 0;
@@ -148,6 +178,11 @@
 
   .reset-button {
     width: 100%;
+  }
+
+  .move-counter {
+    align-self: flex-start;
+    margin: 0;
   }
 
   .memory-board {
