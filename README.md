@@ -1,16 +1,76 @@
-# React + Vite
+# Memory Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple memory matching game built with React and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 24 cards with 12 matching emoji pairs
+- Random card arrangement on each game
+- Matching cards remain visible
+- Non-matching cards flip back automatically
+- Responsive layout for desktop and mobile screens
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- JavaScript
+- CSS
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm run dev
+```
+
+Open the local URL shown in the terminal.
+
+## Available Commands
+
+```bash
+npm run dev      # Start the development server
+npm run build    # Create a production build
+npm run preview  # Preview the production build
+npm run lint     # Check the code with ESLint
+```
+
+## How to Play
+
+1. Click a card to reveal its emoji.
+2. Click another card to search for its matching pair.
+3. Matching cards remain visible.
+4. Non-matching cards flip back after a short delay.
+5. Continue until all pairs have been found.
+
+## Project Structure
+
+```text
+src/
+├── component/
+│   └── Card.jsx
+├── App.css
+├── App.jsx
+├── index.css
+└── main.jsx
+```
+
+## Future Improvements
+
+- Add a move counter
+- Add a timer
+- Add a reset button
+- Add difficulty levels
+- Save best scores with local storage
+- Add keyboard accessibility
+
+## License
+
+This project is for learning and practice.
