@@ -39,6 +39,7 @@ function App() {
   const handleReset = () => {
     setMatched([]);
     setFlipped([]);
+    setClickCount(0);
     setCards(shuffleCards());
     setShuffleVersion(version => version + 1);
   };
@@ -60,13 +61,25 @@ function App() {
         </button>
       </header>
 
-      <Card
-        key={shuffleVersion}
-        cards={cards}
-        flipped={flipped}
-        matched={matched}
-        onCardClick={handleCardClick}
-      />
+      {cards.length > 0 && matched.length === cards.length ? (
+        <section className="win-state" aria-live="polite">
+          <p className="win-kicker">Perfect match</p>
+          <h2>Congratulations! You've won the game!</h2>
+          <p>You cleared the board in {clickCount} moves.</p>
+          <button className="reset-button" type="button" onClick={handleReset}>
+            <span aria-hidden="true">↻</span>
+            <span>Play Again</span>
+          </button>
+        </section>
+      ) : (
+        <Card
+          key={shuffleVersion}
+          cards={cards}
+          flipped={flipped}
+          matched={matched}
+          onCardClick={handleCardClick}
+        />
+      )}
     </main>
   );
 }
