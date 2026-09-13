@@ -1,15 +1,15 @@
 import Card from './component/Card'
+import shuffleCards from './utils/shuffleCards'
 import './App.css'
 import { useState } from 'react';
 
 function App() {
   const cardIdArray = ["😊", "🤣", "❤️", "😍", "😒", "🙌", "👍", "😘", "👌", "😎", '😉', '🤩' ,];
-  const shuffleCards = () =>
-  [...cardIdArray, ...cardIdArray]
-    .sort(() => Math.random() - 0.5)
-    .map((emoji, id) => ({ id, emoji }));
+  const createCards = () =>
+    shuffleCards([...cardIdArray, ...cardIdArray])
+      .map((emoji, id) => ({ id, emoji }));
 
-  const [cards, setCards] = useState(shuffleCards);
+  const [cards, setCards] = useState(createCards);
   const [matched, setMatched] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [shuffleVersion, setShuffleVersion] = useState(0);
@@ -40,7 +40,7 @@ function App() {
     setMatched([]);
     setFlipped([]);
     setClickCount(0);
-    setCards(shuffleCards());
+    setCards(createCards());
     setShuffleVersion(version => version + 1);
   };
 
