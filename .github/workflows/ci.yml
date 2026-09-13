@@ -8,7 +8,7 @@ on:
     branches:
       - main
 
-jobd:
+jobs:
   validate:
     name: Lint and build
     runs-on: ubuntu-latest
